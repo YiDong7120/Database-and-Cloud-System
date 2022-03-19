@@ -1,0 +1,1 @@
+mongosh "mongodb+srv://sandbox.2ozfn.mongodb.net/myFirstDatabase" --apiVersion 1 --username m001-student
