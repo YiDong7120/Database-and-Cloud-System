@@ -7,4 +7,16 @@ client.connect(err => {
 		console.log(err.message)
 		return
 	}
-console.log('Connected to MongoDB')});
+console.log('Connected to MongoDB');
+	
+// client.db().admin().listDatabases().then(result => {
+// 	console.log(result['database'][7]['name']);
+// })
+// client.db('sample_training').listCollections().toArray().then(result => {
+// 	console.log(result[4]);
+// })
+client.db('sample_training').collection('companies').find({name: 'Zenfolio'}).toArray().then(result => {
+	console.log(result);
+	})
+
+});
