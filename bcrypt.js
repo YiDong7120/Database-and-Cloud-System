@@ -40,12 +40,12 @@ let result = await client.db('myFirstDatabase').collection('user').insertOne(
     {
         name: randomName,
         email: randomEmail,
-		    address: randomAddress,
-		    phone: randomPhone,
+	address: randomAddress,
+	phone: randomPhone,
         card: randomCard,
-		    profil:avatarUrl,
-		    background:natureImageUrl,
-		    pass: bcrypt.genSalt(),
+	profil:avatarUrl,
+	background:natureImageUrl,
+	pass: bcrypt.genSalt(),
     }
 )
 
