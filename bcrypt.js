@@ -26,12 +26,12 @@ let result = await client.db('myFirstDatabase').collection('user').insertOne(
     {
         name: randomName,
         email: randomEmail,
-		phone: randomPhone,
-		address: randomAddress,
+	phone: randomPhone,
+	address: randomAddress,
         card: randomCard,
-		profil:avatarUrl,
-		background:natureImageUrl,
-		pass: hash,
+	profil:avatarUrl,
+	background:natureImageUrl,
+	pass: hash,
     }
 )
 
