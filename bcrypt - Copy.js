@@ -13,21 +13,6 @@ const randomPhone = faker.phone.phoneNumber();
 const password = "mypass123"
 const saltRounds = 10
 
-bcrypt.genSalt(saltRounds, async function (saltError, salt) {
-  if (saltError) {
-    throw saltError;
-  } else {
-    bcrypt.hash(password, salt, async function (hashError, hash) {
-      if (hashError) {
-        throw hashError;
-      } else {
-        console.log(hash);
-        //$2a$10$FEBywZh8u9M0Cec/0mWep.1kXrwKeiWDba6tdKvDfEBjyePJnDT7K
-      }
-    });
-  }
-})
-
 client.connect(async err => {
 	if(err) {
 		console.log(err.message)
@@ -35,9 +20,8 @@ client.connect(async err => {
 	}
 	console.log('Connected to MongoDB');
 
-
-
 console.time('insert')
+const hash = await bcrypt.hash(password, saltRounds);
 let result = await client.db('myFirstDatabase').collection('user').insertOne(
     {
         name: randomName,
@@ -47,10 +31,9 @@ let result = await client.db('myFirstDatabase').collection('user').insertOne(
         card: randomCard,
 	      profil:avatarUrl,
 	      background:natureImageUrl,
-	      pass: bcrypt.genSalt(),
+	      pass: hash,
     }
 )
-
 
 console.timeEnd('insert')
 console.log('Inserted 1 document', result);
