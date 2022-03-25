@@ -26,8 +26,8 @@ let result = await client.db('myFirstDatabase').collection('user').insertOne(
     {
         name: randomName,
         email: randomEmail,
-		address: randomAddress,
 		phone: randomPhone,
+		address: randomAddress,
         card: randomCard,
 		profil:avatarUrl,
 		background:natureImageUrl,
