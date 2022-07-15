@@ -1,5 +1,6 @@
-{
-  "dependencies": {
+{ "scripts": {
+  "test": "jest"
+}, "dependencies": {
     "mongodb": "^4.4.1"
   }
 }
